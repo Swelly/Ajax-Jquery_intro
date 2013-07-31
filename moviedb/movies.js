@@ -9,9 +9,11 @@ $(function(){
     // to Search
     var movieTitle = "http://www.omdbapi.com/?t="+ $('#movie').val();
     // Send request with Ajax using movieTitle as url
-    var http = $.ajax({
+    var query = $.ajax({
       type: 'get',
       url: movieTitle
+    }).done(function(event){
+      $('#searchResult').append('<div>'+query+'</div>');
     })
   })
 
