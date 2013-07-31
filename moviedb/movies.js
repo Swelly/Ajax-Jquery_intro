@@ -12,8 +12,9 @@ $(function(){
     var query = $.ajax({
       type: 'get',
       url: movieTitle
-    }).done(function(event){
-      $('#searchResult').append('<div>'+query+'</div>');
+    }).done(function(data){
+      console.log("Movie Retrieved")
+      $('#searchResult').append('<div>'+query.responseText+'</div>');
     })
   })
 
