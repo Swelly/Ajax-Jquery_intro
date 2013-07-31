@@ -1,0 +1,12 @@
+$.ajax({
+  type: 'get',
+  url: 'http://www.omdbapi.com/?t=Spirited%20Away'
+}).done(function(data){
+  console.log("i'm done!");
+  console.log(data);
+}).fail(function(data){
+  console.log("i've failed");
+  console.log(data.errorText);
+}).always(function(data){
+  console.log("i always run");
+})
