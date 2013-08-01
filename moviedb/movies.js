@@ -7,14 +7,17 @@ $(function(){
 
   $('#search').click(function(event){
     // to Search
-    var movieTitle = "http://www.omdbapi.com/?t="+ $('#movie').val();
+    var movieTitle = "http://www.omdbapi.com/?s="+ $('#movie').val();
     // Send request with Ajax using movieTitle as url
-    var query = $.ajax({
+    $.ajax({
       type: 'get',
-      url: movieTitle
+      url: movieTitle,
+      dataType: 'json'
     }).done(function(data){
-      console.log("Movie Retrieved")
-      $('#searchResult').append('<div>'+query.responseText+'</div>');
+      for(var i = 0; i < data.Search.length; i++) {
+      $('#searchResult').append('<div>'+data.Search.[i]+'</div>');
+      }
+        // $('#searchResult').append('<li>'+data.key[i]+'</li>');
     })
   })
 
